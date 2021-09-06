@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{differ}
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Pieter van de Bruggen"]
+  s.authors = ["Pieter van de Bruggen", "Kevin Tran"]
   s.date = %q{2011-02-17}
-  s.email = %q{pvande@gmail.com}
+  s.email = %q{pvande@gmail.com KevinTran2019@yahoo.com}
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = %q{http://github.com/pvande/differ}
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.4.0}
   s.summary = %q{A simple gem for generating string diffs}
   s.test_files = [
     "spec/differ/change_spec.rb",

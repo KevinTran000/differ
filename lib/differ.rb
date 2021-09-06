@@ -44,6 +44,15 @@ module Differ
       return @format || Format::Ascii
     end
 
+    # Inline or Above/Below Comparision (multi-line)
+    def format_style=(f)
+      @format_style = format_style_for(f)
+    end
+
+    def format_style
+      @format_style || :inline
+    end
+
     def format_for(f)
       case f
       when Module then f
@@ -54,6 +63,12 @@ module Differ
       when nil    then nil
       else raise "Unknown format type #{f.inspect}"
       end
+    end
+
+    def format_style_for(f)
+      raise "Unknown format style type: #{format_style}" unless [:inline, :multi_line].include? f
+
+      f
     end
 
   private

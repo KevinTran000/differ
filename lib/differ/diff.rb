@@ -68,7 +68,13 @@ module Differ
     end
 
     def to_s
-      @raw.join()
+      case Differ.format_style
+      when :inline
+        @raw.join
+      when :multi_line
+        as_diffy
+      else raise "Unknown format style type: #{@format_style}"
+      end
     end
 
     def format_as(f)
@@ -89,7 +95,6 @@ module Differ
                        if i.kind_of? Change
                          #  binding.pry
                          i = i.formatted_delete
-                         # Differ.format.as_delete(i)
                        else
                          i
                        end
@@ -97,7 +102,6 @@ module Differ
       diffy_string += @raw.map do |i|
                         if i.kind_of? Change
                           i = i.formatted_insert
-                          # Differ.format.as_insert(i)
                         else
                           i
                         end
