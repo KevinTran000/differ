@@ -75,11 +75,33 @@ module Differ
       f = Differ.format_for(f)
       @raw.inject('') do |sum, part|
         part = case part
-        when String then part
-        when Change then f.format(part)
-        end
+               when String then part
+               when Change then f.format(part)
+               end
         sum << part
       end
+    end
+
+    # Side-by-side comparison (compared to the normal in-line)
+    def as_diffy
+      diffy_string = ''
+      diffy_string = @raw.map do |i|
+                       if i.kind_of? Change
+                         #  binding.pry
+                         i = i.formatted_delete
+                         # Differ.format.as_delete(i)
+                       else
+                         i
+                       end
+                     end.join() + "<br>\n"
+      diffy_string += @raw.map do |i|
+                        if i.kind_of? Change
+                          i = i.formatted_insert
+                          # Differ.format.as_insert(i)
+                        else
+                          i
+                        end
+                      end.join() + "\n"
     end
 
   protected

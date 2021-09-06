@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{differ}
-  s.version = "0.1.2"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pieter van de Bruggen"]
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "lib/differ/format/ascii.rb",
     "lib/differ/format/color.rb",
     "lib/differ/format/html.rb",
+    "lib/differ/format/html_differ.rb",
     "lib/differ/string.rb",
     "spec/differ/change_spec.rb",
     "spec/differ/diff_spec.rb",

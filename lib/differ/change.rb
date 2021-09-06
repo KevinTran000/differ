@@ -18,6 +18,14 @@ module Differ
       !@insert.empty? && !@delete.empty?
     end
 
+    def formatted_insert
+      Differ.format.as_insert(self)
+    end
+
+    def formatted_delete
+      Differ.format.as_delete(self)
+    end
+
     def to_s
       Differ.format.format(self)
     end
